@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Date Proposal</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: linear-gradient(to bottom right, #ffcccc, #ffe6f2);
+            font-family: 'Georgia', serif;
+            color: #5a2d2d;
+        }
+        .container {
+            text-align: center;
+            padding: 20px;
+            border: 2px solid #5a2d2d;
+            border-radius: 10px;
+            background-color: white;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
+        #question {
+            font-size: 24px;
+            margin-bottom: 30px;
+        }
+        .option {
+            display: inline-block;
+            padding: 12px 25px;
+            font-size: 18px;
+            margin: 10px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        #yes {
+            background-color: #4CAF50; /* Green */
+            color: white;
+        }
+        #no {
+            background-color: #f44336; /* Red */
+            color: white;
+            position: relative;
+        }
+        .option:hover {
+            transform: scale(1.05);
+        }
+        #yes:hover {
+            background-color: #45a049; /* Darker green */
+        }
+        #no:hover {
+            background-color: #d32f2f; /* Darker red */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div id="question">Mari Chania, will you go on a date with me?</div>
+        <div>
+            <button class="option" id="yes" onclick="sendEmail()">Yes</button>
+            <button class="option" id="no" onmouseover="jump()">No</button>
+        </div>
+    </div>
+
+    <script>
+        function jump() {
+            const noButton = document.getElementById('no');
+            const randomX = Math.random() * (window.innerWidth - 120); // Random x position
+            const randomY = Math.random() * (window.innerHeight - 80); // Random y position
+            noButton.style.position = 'absolute';
+            noButton.style.left = randomX + 'px';
+            noButton.style.top = randomY + 'px';
+        }
+
+        function sendEmail() {
+            const email = "tnachkebia123@gmail.com";
+            const subject = "Date Proposal Acceptance";
+            const body = "I, Mari Chania, the most charming lady in the realm, graciously accept your noble invitation for our forthcoming engagement.";
+            window.location.href = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        }
+    </script>
+
+</body>
+</html>
